@@ -1,0 +1,58 @@
+DESIGN DOCUMENT - PROJECT 2: UNDO-REDO SYSTEM
+Name: Nidhi Kairon
+Class: CS260 20778
+
+OVERVIEW
+Undo-Redo System is a program that will have Command ADT, Deque ADT, and a driver program. Command ADT is the interface for all the command entires. It defines the structure of the data for the Deque to manupilate and store the data. It will include memory allocation and deallocation, along with two constructors and one destructor. Deuque ADT utilizes doubly linked list. It contains a Command item and two pointers that makes a double linked list, which will allow the program to perform both the undo and redo functions. The driver program is a menu-based interface that will allow the user to show the entire command history, undo a certain number of commands, redo a certain number of commands.
+
+DESIGN CONSIDERATION
+The primary design for this program is is to handle the undo and redo functionality using doubly linked list along with the implementation of a buffer doubling strategy. Plan is to carefuly manage the next and previous pointers that will help in establishing the doubly linked list. Undo and redo functionality has history deque and redo deque that will allow to shift Command objects back and forth between different lists. It will re-wire the program by unpluggin the node's next and previous pointers since it will be using doubly linked list. Buffer-doubling strategy will be using to resize a character pointer dynamically, since the program will not store the command description in a fixed-size array, when reading the data from the data file. ADT functions will hae constructurs and destructors for both the Command ADT and Deque ADT. Plan is to have Getter for sequence number and description in Command ADT. Deque ADT will have addition and removal prototypes and accessors, along with traversal to display the command history. So ADT handles the shielding of the program by having the shielding between the user and the pointer logic.
+
+SUCCESS/FAILURE
+Command ADT has sequence number (tracks the commans) and description (dynamic string). It has character pointer and memory allocation. It success occurs when the sequence number and description will be initialized in Command object. It will succesfully store the newly allocated dynamic memory. It's failure can happen during memory allocation. Memory allocation fails when the system doesn't have heap memory for the description. In order to make sure that this Undo-Redo Systsem does not lead to fauliure, it's ADT manages the pointer by making sure that the program reads from a valid memory address. Deque ADT handles addition, and remova operations. One success about the addition operation in the Deque ADT is when front and back pointers gets updated correctly by linking the new node that gets created. It fauilure can occur when the function does not create a new node due to the lack of memory. In order to make sure this doesn't happen, the program will make sure that the new node gets created correctly and the program does not run out of memory. In the removal operation, when the node is unlinked correctly is a success but it can lead to a failure when it doesn't happen. So the program will make sure that the unlinking the nodes gets handles correctly.
+
+DATA STRUCTURES
+This program uses one primary data structure: Doubly Linked List. This data structure allows the program to function to perform with high efficiency. In this program, doubly linked list has three part for each node: data, next pointer, and previous pointer. Command class will handle the data part of the commands, which contains the sequence number and description. The next pointer is a memory address. It points to the next command. The previous pointer will also be a memory address. It points to the command that will occur previously, and this pointer undo the action. This chain will allow to perform the redo and undo tasks effectively by allowing the list to grow and srink. This data structure gives you the advantage of changing where the pointer points, which allows the thounsands of commands to be added effectively without having to worry about shifting every other element. It also helps with preventing crashes since it's dynamic. Special cases of this data structure includes the empty list, single-item list, and adding to an empty list. In empty list, both the front pointer and the back pointers is set to null pointer after all commands are removed. Singly-item list happens when one node remains, it happens when both the next pointer and previous pointer are null. Adding to an empty list happens when both the front and back pointer are assigned to the new node. All these special cases will be resolved when ADT functions in this program will use the conditional logic correctly by assigning the front pointer and back pointer correctly. Pointer Diagram Logic - before removal: the back pointer points to the node A and then nodes A previous pointer points to node B, after removal: back pointer ponts will get assigned to node B and node B's next will be set to null, before insertion: the back pointer is null, and after insertion: back pointer and front pointer will point to the new node.
+
+ALGORITHM
+Undo-Redo System uses iterative algorithms for the traversal function that prints the commands history, rather than using recursive ones. This algorithm makes sure that stack overflow issues doesn't occur, which will make the program is stable regardless of the commands history size. This program will also use loadData algorithm that uses new and delete, which ensures that the data from the data file gets transfered safely into the Command object. It helps in managing the temporary description buffer well. It means that there will be no recursive functions in this program.
+
+ADT INTERFACE
+The way the design of this program will be implemented into the program, the user will not know things like that this program uses doubly linked list. ADT interface ensure that the history and redo lists stays structurally identical but remains logically seperate from one another by maintaning chronological link. This program ADT interface also incldues constructors and destructors, and as well as constant accessor to protect the data.
+
+TEST PLAN
+The test plan starts from testing the Command ADT by verifying the dynamic description storage and deep copy verification. Dynamic description storage will be tested by adding more than 100 characters for description to ensure that that the buffer-doubling logic is working. Deep copy will get verified create two commands one without the copy constructor and one with the copy constructor, with this teh first command modified to see if the second command remains unchanged. When the second command unchanged, then it confirms the verfiication for the deep copy. Deque ADT will get tested by verfifying the front pointer back pointer is pointing to new null when the command gets added to an empty list, and also verfifying that the front and back pointer are reset to null pointer when the user try to remove from the empty list. In order to test the undo and redo logic, number for undo and redo commands will be entered, which will look like the following:
+After loading from file, the command history:
+1 copy line 3-6
+2 paste line 3-6 after line 10
+3 remove line 20-30
+4 remove the first 3 words of line 1
+5 join line 20 and 30
+6 replace all occurrences of "num" to "number"
+7 comment out line 4-5
+8 indent line 12-15
+9 unindent line 5-8
+10 uncomment line 9-11
+After undo 3 commands, the command history:
+  8 indent line 12-15
+  9 unindent line 5-8
+  10 uncomment line 9-11
+1 copy line 3-6
+2 paste line 3-6 after line 10
+3 remove line 20-30
+4 remove the first 3 words of line 1
+5 join line 20 and 30
+6 replace all occurrences of "num" to "number"
+7 comment out line 4-5
+After redo 2 commands, the command history:
+  10 uncomment line 9-11
+1 copy line 3-6
+2 paste line 3-6 after line 10
+3 remove line 20-30
+4 remove the first 3 words of line 1
+5 join line 20 and 30
+6 replace all occurrences of "num" to "number"
+7 comment out line 4-5
+8 indent line 12-15
+9 unindent line 5-8
+
