@@ -1,0 +1,28 @@
+DESIGN DOCUMENT - PROJECT 1: ENGINEER MANAGEMENT SYSTEM
+Autor: Nidhi Kairon
+Class: CS260 20778
+
+OVERVIEW
+Engineer Management System is a program that has Engineer ADT, EngineerList ADT, and a driver program. Engineer ADT has the information about a engineer such as their first and last name, title level, and assessment level. EngineerList ADT has the public member functions to perform constructor, destructor, add new engineer, promote an engineer, edit the assessment level, display all engineers, display engineers of a certain level, and remove all engineers with the performance rating 1. The driver program is a menu-based interface that allow the user to use and test all the functionalities of the program. 
+
+DESIGN CONSIDERATION
+The primary design for this project is transitioning from static memory to dynamic memory. Plan is to minimize the programs memory footprint by choosing to store names as a character pointers, which means that I will not be using the fixed-size arrays to store the names. This also means that I will have to deal with the shallow copy problem, and to solve this problem, I will be using the deep copy strategy, which is implemented using a custom copy constructor and assignment operator. I am also considering the requirement for alphabetical sorting, where I choose the ordered insertion strategy. This ensures that the collection is in a valid state for display. This makes the process of display and search more efficient. This search process uses a linear search algorithm in my design for this program, which identifies the correct position for a view node. 
+
+DATA STRUCTURES
+This program uses two primary data structures: a Classes-based ADT for Engineer APT and Singly Linked List for the Engineer List ADT. The Engineer ADT focuses on the Engineer object data that  makes sure that the driver program does not corrupt the memory address by containing private pointers. The Singly Linked List will be implemented for managing the collection of engineers. This Engineer List ADT will have systematic deletion, dynamic node insertion, and recursive traversal. Special cases for the linked list data structure with be handled with the insertion into an empty list, insertion at the beginning, middle or the end, and as well as deletion of the head.
+Insertion at the beginning - Before: Head -> Node A, After: Head -> New Node -> Node A
+Insertion in the middle or the end -  Before: Node A -> Node C, After: Node A -> New Node -> Node C
+Deletion of the head: the head pointer will be moved to the second node before the first one is deleted, and this will prevent losing the entire list. 
+All of this will handle the special cases for linked list.
+ 
+ALGORITMS
+This program will have both the recursive algorithms and the iterative algorithms. Recursive will be used for memory cleanups and filtering the displays, whereas iteration will be used for standard linear tasks such as updating an assessment by index. 
+
+RECURSION
+Recursion will have memory deallocation, which will have the destruction that calls the recursive function that visits each node. This node will display the data if will match the criteria. If it doesn't match the criteria then it passes the work to the next node. This will make sure that the program never access a pointer of that node that has been deleted. Recursive filtering will visit each node as well through that recursive function to display engineers by specific rank. This will ensure that the requirement for non-iterative processing in some ADT operations get satisfied.
+
+ADT INTERFACE
+The way the design of this program will be implemented into the program, the user will not know things like that this program uses linked list. The user interaction with the program will have success and failures that will be reported back to the user such as if the user tries to edit an engineer at a certain index and if that index will not exist, then the user will receive the invalid input message. These outputs that will be returned to the user will make sure that that program doesn't crash.
+
+TEST PLAN
+The test plan will make sure about the reliability of the system by initialization from the file, alphabetical sorted insertion, promotion bounds, deletion of multiple poor performers, empty list operation and lastly by memory integrity. Memory integrity will run the program with expected outcome of zero memory leaks and zero invalid reads. Empty list operations will attempt to display or edit an empty list with the expected outcome of not crashing or returning the incorrect data. Deletion of multiple poor performers will have a list that contains engineers with a rating of 1 with the expected outcome of pointers are updating correctly and the nodes are being removed that are necessary. Promotion bounds will attempt to promote the engineers with the expected outcome of levels remains unchanged. Alphabetical sorted insertion will add the engineers names to the list with the expected outcome of the name being added to the list.      
