@@ -66,11 +66,8 @@ indent line 12-15
 unindent line 5-8
 uncomment line 9-11
 After undo 3 commands, the command history:
-
-     8. indent line 12-15
-
-     9. unindent line 5-8
-
-    10. uncomment line 9-11
+ 8. indent line 12-15
+ 9. unindent line 5-8
+10. uncomment line 9-11
 
 copy line 3-6
