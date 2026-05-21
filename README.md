@@ -1,4 +1,6 @@
-# CS260-Projects
+# CS260-Projects 
+
+# Project 1
 
 This is a program that helps keep track of engineer lists. It has an ADT for Engineer and an ADT for EngineerList
 
@@ -25,3 +27,50 @@ This ADT have public member functions to perform the following:
 The test program first load the test data set from external file at the beginning of the program.
 The menu-based user interface allow user to use/test ALL the functionalities of the program. 
 Always prompt user when input data is needed.
+
+# Project 2
+
+**Part I: The Deque ADT**
+The deque represent the command history of this program. 
+The command includes:
+- sequence number of the command, e.g. 1, 2, .., and they do not change throughout the program
+- command description, e.g. copy line 3-6
+The deque implemented using a doubly linked list of commands, where the front pointer points to the command that was used for redo and the rear pointer points to the most recent command. 
+Implemented:
+- addToEnd
+- removeFromEnd
+- addToFront
+- removeFromFront
+- peekEnd
+- peekFront
+- display
+
+**Part II: The Driver or the Test Program**
+The test program first load the test data set from external file at the beginning of the program. The menu-based user interface allow user to do the following:
+- Show the entire command history
+- Undo a certain number of commands
+- Redo a certain number of commands (the opposite of undo)
+
+Here is an example of undoing and redoing:
+
+After loading from file, the command history:
+
+copy line 3-6
+paste line 3-6 after line 10
+remove line 20-30
+remove the first 3 words of line 1
+join line 20 and 30
+replace all occurrences of "num" to "number"
+comment out line 4-5
+indent line 12-15
+unindent line 5-8
+uncomment line 9-11
+After undo 3 commands, the command history:
+
+     8. indent line 12-15
+
+     9. unindent line 5-8
+
+    10. uncomment line 9-11
+
+copy line 3-6
