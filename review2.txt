@@ -1,0 +1,19 @@
+EFFICIENCY REVIEW WRITE-UP - PROJECT 2: UNDO-REDO SYSTEM
+Name: Nidhi Kairon
+Class: CS260 20778
+
+PERFORMANCE OF DATA STRUCTURES
+The data structure that was implemented in the program was doubly linked list, which performed esceptionally well. This data structued was implemented as a Deque. It involved addition and removal opereations from the end of the lists very frequently since we were undoing and redoing the commands from the command history. This data structure handles these operations in constant time.
+
+ALTERNATIVE DATA STRUCTURES
+Even though the doubly linked list was very effective for running this program, I would say that array-based stack would have made this program a bit faster than implementing the doubly linked list in the case of redoing and undoing the commands. Because array based stack would store the elemnts side-by-side, which would have made the processor to load them faster compared to the doubly linked list. However, there are downside to array-based stack when it comes to if theres more data than the size of the array, and in order to do the resizing operations, it will end up taking more time than doubly linked list. So array-based stack is a alternative data structure we can use which would be more effective if we don't have to do any resizing operations.
+
+EFFICIENCIES OF DESIGN AND DATA STRUCTURES
+The most efficient aspect of the design is when the command is moved from command history to redo operation. This makes moving pointers rather than the data, which saves quite much of processing power. This is effieicient because its using doubly linked list, which makes sures that there is no wastage of space. Another effiiency aspect of the design is the buffer-doubling strategy. It makes sure that the command descriptions are read properly regarless of its size.
+
+INEFFICIENCIES OF DESIGN
+One ineffeciency of the design of this program is it's linear search. If we have hundreds of items in the command history, it would go through nodes one by one, which would make the program very slow, also as well as when the program is traversing the list when we are trying to print the command history. Because traversing the list is slower than traversing the array.
+
+DIFFERENT APPROACHES
+If I had more time to solve the problem, I would have the maximum capacity on the comand history for the Deque, which means that if I put the max capacity to 100, then I would make the program to delete the oldest command from the history on its own. This will make the program slighly faster. Right now, this program does operations for undo and redo in constant time and display all and search operations at linear time. So if I try to implement the banalanced binary search tree, it would make the program more faster, then I would not have to worry about adding the maximum capacity as well since it will run in logrithimic time. 
+
