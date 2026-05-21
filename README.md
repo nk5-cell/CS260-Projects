@@ -1,6 +1,6 @@
 # CS260-Projects 
 
-# Project 1
+# PROJECT 1: ENGINEER MANAGEMENT SYSTEM
 
 This is a program that helps keep track of engineer lists. It has an ADT for Engineer and an ADT for EngineerList
 
@@ -28,7 +28,7 @@ The test program first load the test data set from external file at the beginnin
 The menu-based user interface allow user to use/test ALL the functionalities of the program. 
 Always prompt user when input data is needed.
 
-# Project 2
+# PROJECT 2: UNDO-REDO SYSTEM
 
 **Part I: The Deque ADT**
 The deque represent the command history of this program. 
