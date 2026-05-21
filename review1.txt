@@ -1,0 +1,17 @@
+EFFICIENCY REVIEW WRITE-UP - PROJECT 1: ENGINEER MANAGEMENT SYSTEM
+Name: Nidhi Kairon
+
+PERFORMANCE OF DATA STRUCTURES
+The data structures that was implemented in the program was class-based ADT and singly linked list, which did perform well. Class-Based Abstract Data Type managed memory really well and as well as protected the data integrity effectivly. One thing that made this data type perform well was when the destructor was automatically cleaning up the memory while ensuring the memory usage. Linked List handled the dynamic memory very effienctly as well as handled alphabetical sorting effectively. Sorting insertion made sure that the list is always ready for display, and linked list also made sure that ADT is ineffective when it comes to random access. Data shielding and recursive cleanup was done through these data structures that made the performance of the program reliable. Overall, the performance was of this program was efficient and reliable since it balanced everything out, and prioritized memory allocation and data organization. 
+
+ALTERNATIVE DATA STRUCTURES 
+Even though the singly linked list was very effctive for running this program, I would say that doubly linked list would have made this program more better. It would have allow bi-directional traversal, which would have made removing poor performers more effective. Also, if the system needed to handle a lot of data of engineers such as thousands or millions of engineers data, binary search tree data structure would have made this program so much faster since when it comes to the speed of this data structure, it uses logarithmic time, which is really good for handling a lot of data such as long list of engineers. The program right now works really well, but when it comes to handling large amount of data implementing doubly linked list or binary search tree data structures instead of class-based ADT or singly linked list would be a better choice.
+
+EFFICIENCIES OF DESIGN AND DATA STRUCTURES
+The most effieicent aspect of the design is dynamically allocating the memory and integeration of ordered insertion. Dynamic memory allocation was very effective for character strings since it calculated the exact length of massive internal fragments in the Engineer class. It used the class-based ADT really well. Also, the way recursion for the destructor was implemented was a very effective way to handle the memory cleanup.   
+
+INEFFICIENCIES OF DESIGN
+The primary ineffeciency of the design of this program is the time complextity of when it comes to indexed operation. Because moving to specific index require a loop to handle the time complexity since the singly linked list does not support random access, which unfortunately does not help in speeding up the functionalities of the program.
+
+DIFFERENT APPROACHES
+If I had more time to solve the problem, I would implement the double linked list instead of single linked list and as well as binary search tree data structure, because both of these data structure will help in handling the complex data as well as make the speed of this program performs better.   
