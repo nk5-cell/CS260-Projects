@@ -1,0 +1,32 @@
+DESIGN DOCUMENT - PROJECT 3: PCC ACADEMIC STANDING SYSTEM
+Autor: Nidhi Kairon
+Class: CS260 20778
+
+OVERVIEW
+PCC Academic Standing System is a program that will have a table ADT, and a driver program. Table ADT will use the hash table data structure to add new student, retrieve students based on the program, edit academic standing for a particular program and student match, remove unacceptable standings, and monitor the performance of hashing function. 
+        
+DESIGN CONSIDERATION
+The primary design of this project is to implement a hash table using seperate chaining. Plan is to have a Hash Table ADT that does hashing by taking the search key, which in our program would be the stduents program name, and then we'll convert that to a direct array index. This ADT will handle collision by using the Data Abstraction & Problem Solving with Walls And Mirrors textbook by Frank M. Carrano and Timothy M. henry approach. This will be done through chaining the hash table by making sure that different program names doesn't end up at the same index by having array of head pointers. We will have a Table ADT that will have a consturctor, destructor, insetion, retrieval, edit, remove unacceptatble standing, and monitor. In this design, the contructor will initialize the hash table structure. It will have a destructor to handle structural deallocation. Insertion will be to accept student record, retrieval will perform deep copies, edit will update the student information, remove unacceptable standing function will remove the nodes that holds that standing status (it will take no parameter), and lastly monitor function will iterate through each bucket of array position. This design will have a client program that will pass in records to these insertion function. It will maintain the boundry between data access and data storage.
+
+DATA STRUCTURES
+Table ADT has an array of head pointers that forms a hash table, and each of its elements dynamically grow singly linked list of nodes. Each of its node has student data and has a forward link pointer. This hash table data structure stores and find data in O(1) constatnt time. It has a key, hash function, and a bucket array. It computes index instantly, which makes the data editing and retriving faster. This program will use prime numbers for table sizes for the hash table to minimize collisions, and it will create a monitor function in this ADT to prevent those collisions. This data structure include three special cases:
+Pointer Diagram of the special cases:
+First case is about insertion at a bucket chain.
+Before insertion: Bucket Index [x] ---> Existing Node A ---> Existing Node B ---> NULL
+New Node Pointer ---> New Node Data ---> NULL
+After insertion: Bucket Index [x] ---> New Node Data ---> Existing Node A ---> Existing Node B ---> NULL
+Second case involved deleteing a node from the middle of the chain or the end of the chain:
+Before Deletion: Bucket Index [x] (prev) ---> Node A (curr) ---> Node B (Target) ---> Node C ---> NULL
+After Deletion:  Bucket Index [X] (prev) ---> Node A ----------(-c-u-r-r-)--------> Node C ---> NULL
+Thirs special case is about deleting the first node in the chain.
+Before Deletion: Bucket Index [x] ---> Node A (Target)(curr) ---> Node B ---> NULL
+After Deletion: Bucket Index [X] (curr) ---> Node B ---> NULL
+
+ALGORITHMS/RECURSION
+This program will have iterative and key mapped hashing algorithm with no recursion. Insertion algorithm has a O(1) constant time efficiency. It does push to front insertion, which avoids traversing down the linked list. It also makes the insertion slighlty faster by always inserting to the front. This type of algorithm also dynamically allocates the new node and insert it at the head of the linked list bucket. It will happen when the bucket index will be calculated. Hashing and Mapping algorithm involves character summation modulo. It will loop through the characters of the program name, get it's ASCII value, and then it will use the modulo operator with the total size of the table to generate the index. It runs in O(n) time, where n is the length of the string. This program will also have retrival and search algorithm that looks at a specific bucket to retrieve the information through while loop by comparing the keys to search the information. It has a O(1) time if no collisions happens, which will be prevented by making sure that the program name doesn't end up at the same index.
+
+ADT INTERFACE
+The way the design of this program will be implemented into the program, the user will not know things like that this program uses hash table. It will have helper functions that copies and destroys the student information by setting dynamic memory space and by cleaning up the memory. It will have structural function of insert, retrieve, and edit. It will also have a function for remove unacceptable standing and monitoring. Both of these will handle data manupulation internally.
+
+TEST PLAN
+The first test plan will check initialization and data loading by verifying empty table initialization, and as well as seeing if the data from the data file is loading correctly after putting in the data in that file. The second test plan will be about insertion operations. It will insert into empty bucket by inserting on a student program name that will be hashing to an empty table array slot. This second plan will also check if the insertion is causing key collision or not by inserting student information with the same program name. The third test plan is about retrieval of student information. It will try to retrieve information of a program that doesn't exit to see if its working correctly, as well as retrive information about a program that has mutiple matches under a particular program name. The fourth test plan will check the modification of record. The fifth test plan is about removal and cleanup process. It will try to remove record of the starting of the chain, remove from it's middle position and it's end position to test.
