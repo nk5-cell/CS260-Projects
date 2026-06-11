@@ -1,0 +1,18 @@
+EFFICIENCY REVIEW WRITE-UP - PROJECT 3: PCC ACADEMIC STANDING SYSTEM
+Autor: Nidhi Kairon
+Class: CS260 20778
+
+PERFORMANCE OF DATA STRUCTURES
+The data structure that was implemented in the program was hash table with seperate chaining, which performed esceptionally well. With this data structure, operations like adding a new student or retriving student information performed really well. This data structure prevented the program from lagging. It's client program relied heavility on all the public interface, and due to this, this data structure for this program turned out to be very effective. This data structured handles operation in constant and linear time, depending on the distribution of the student data.
+
+ALTERNATIVE DATA STRUCTURE
+Even though the Hash Table was very effective for running this program, I would say that Balanced Binary Search Tree would have also worked really good for a program like this. Balanced Binary Search Tree would have given more dynamic flexibility compared to the Hash Table. It would have also make the performance of the program predictable with the time complexity of O(log N) for operations like insertion, deletion, and retrieval. This data structure would have also worked great when it comes to sorted data, then there would be no concerns about collision compared to the Hash Table.
+
+EFFICIENCIES OF DESIGN AND DATA STRUCTURES
+The most efficient aspect of the design is the prime table size of the hash table. Setting the table size to the prime number minimized the risk of collisions. Another good aspect was that when the user tried to retrieve or edit any data, the retrieve and the edit function isolated their serach to only a single array bucket. It make the program to not slow down, since it did not search through the entire data file. Looking at the time complexity of this design, when it came to insertion, a new student node was pushed to the front of the chain due to the constant time, which worked well in this case.
+
+INEFFICIENCIES OF DESIGN
+One ineffeciency of the design of this program is it's memory fragmentation. The design of this program relying so much on a individal new node allocations, which is not the best for making the program more efficient. The program constantly allocates and deallocates memory blocks, which is seen from the APT operations. In this case the allocation can fail since there is gragmented memory due to seperate chaining of the hash table.
+
+DIFFERENT APPROACHES
+If I had more time to solve the problem, more time to optimize the performance of this program, I would do two things: I would find a way to eliminate the character-summation collisions more efficiently, and I would create a seperate pointer array for only tracking the students standings level so removing the unacceptable standing from the removeUnacceptableStanding function becomes more efficient.
