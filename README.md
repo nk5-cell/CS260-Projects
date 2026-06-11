@@ -89,7 +89,7 @@ The required functions for Table ADT are:
 
 The test program first load the test data set from external file at the beginning of the program. The test program allow user to add a new student, retrieve all students from a given program, edit a student's standing, remove all students with unacceptable academic standing, and display all (not in order!). It also allow user to monitor the performance of the hash table (the monitor function in the ADT). The menu-based user interface allow user to use/test ALL the functionalities of the program. 
 
-# PROJECT 3: PCC ACADEMIC STANDING SYSTEM
+# PROJECT 4: PCC ACADEMIC STANDING SYSTEM
 
 This is a program that create a binary search tree (BST) and implement the BST algorithms recursively. The advantage of a binary search tree is the ability to retrieve the data using a logarithmic performance assuming that the tree is relatively balanced and be able to search for a range of information and obtain our data in sorted order. 
 
