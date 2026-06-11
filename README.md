@@ -1,5 +1,3 @@
-# CS260-Projects 
-
 # PROJECT 4: PCC ACADEMIC STANDING SYSTEM
 
 This is a program that create a binary search tree (BST) and implement the BST algorithms recursively. The advantage of a binary search tree is the ability to retrieve the data using a logarithmic performance assuming that the tree is relatively balanced and be able to search for a range of information and obtain our data in sorted order. 
