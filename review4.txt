@@ -1,0 +1,18 @@
+EFFICIENCY REVIEW WRITE-UP - PROJECT 4: PCC ACADEMIC STANDING SYSTEM
+Autor: Nidhi Kairon
+Class: CS260 20778
+
+PERFORMANCE OF DATA STRUCTURES
+The data structure that was implemented in the program was binary search tree, which performed esceptionally well. With this data structure, operations like adding a new student or retriving student information performed really well. This data structure prevented the program from lagging. It's client program relied heavility on all the public interface, and due to this, this data structure for this program turned out to be very effective. This data structured handles operation in logarithmic time, which also made the program run very efficiently.
+
+ALTERNATIVE DATA STRUCTURE
+Even though the Binary search tree was very effective for running this program, I would say that Balanced Binary Search Tree would have also worked really good for a program like this. Balanced Binary Search Tree would have given more dynamic flexibility compared to the Blanced Binary Search Tree. It would have also make the performance of the program predictable with the time complexity of O(log N) for operations like insertion, deletion, and retrieval. This data structure would have also worked great when it comes to sorted data.
+
+EFFICIENCIES OF DESIGN AND DATA STRUCTURES
+The most efficient aspect of the design is memory leak protection, and in-order soted displays. Memory leak protection has the inclusion of deep-copying that has post-order destructuon sequence. It optimise the runtime of memory effectively In-order siplay leverage the in-order depth-first traveral. When it comes to the time complexity of this design, on average, most of the ADT operation are done on O(log N), which also makes this data strcture very efficient.
+
+INEFFICIENCIES OF DESIGN
+One ineffeciency of the design of this program is reduntant structual traversal in the node deletion. When it comes to remocing a node with two children, the deleteNode function calls the getLeftmostNode function to locate the successor it then calls the removeByGNumber function to delete the successor. This special case of this data structure results in a double traversal of the right subtree, which makes this design of this program inefficient.
+
+DIFFERENT APPROACHES
+If I had more time to solve the problem, more time to optimize the performance of this program, I would do two things: I would transition to Balanced tree data structure, most likkly the AVL Tree. It will ensure struct )(log N) operations. The second thing I would optimise the node removal algoritm for the two-child special case of this binary tree data structure, which will optimize this to handle the pointer that un-links during the initial retrival flight.
