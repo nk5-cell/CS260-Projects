@@ -1,0 +1,64 @@
+DESIGN DOCUMENT - PROJECT 4: PCC ACADEMIC STANDING SYSTEM
+Autor: Nidhi Kairon
+Class: CS260 20778
+
+OVERVIEW
+PCC Academic Standing System is a program that will have a StudentBST ADT, and a driver program. StudentBST ADT will use binary search tree data structure to add new student, retrieve students based on the G#, remove all student in aprogram, promove a particular student based on G#, display all students sorder by G#, and monitor the performance and height of the tree.
+        
+DESIGN CONSIDERATION
+The primary design of this project is to implement a Binary Search Tree (BST). This data structure is capable of handling dynamic student data record. It efficienly will do isertion, retreivel, and removal operations. This data structure will manage and store student records by g-number using the left and the right pointer which acts as a left child and right child of the tree. It will recursively do insertion, retrieval, removal, display, and monitoring. It does all of this in logarithmic average time, which gives this data structure the advantage to do tasks more efficienly than data structures like linear linked list. This data structure design will prevent memory leaks through deep copying and recurisve clean up. The design of this program will dynamically allocate memory strings, which will also prevent memory leaks. Deep-copy mechanism will allocate heap segments. There will also do deallocation through recursion. This design will have a tree structure stability during multi-node delesion. It will evaluate child subtrees and will make sure that there is total structural stability. This design will use the Data Abstraction & Problem Solving with Walls And Mirrors textbook by Frank M. Carrano and Timothy M. henry approach. We will have a StudentBST ADT that will have a consturctor, destructor, insetion, retrieval, removal, and monitor. This design will also have a client program that will pass in records to these function.
+
+DATA STRUCTURES
+StudentBST ADT implements Binary Search Tree Data Structure. There are two fuctionalities of this structure. First one is that it maanges dynamic pointer that represents programName, Student Name, and G-number. Second one is that it constains a Node struct that stores student data with self-refercing pointers to the left and right side of the trees.
+Diagram of the special cases:
+Case 1: Removing the leaf node
+Before Removal:
+    [Parent Node]
+         |
+    [Target Node]
+    (left = null)
+    (right = null)
+After Removal:
+    [Parent Node]
+         |
+       [null]
+In special Case 1, the target node gets updates to null.
+Case 2: Removing a node with one child
+Before Removal:
+        [Parent Node]
+            |
+    [Target Node: only rigth child]
+            |
+        [Child Node]
+After Removal:
+    [Parent Node]
+         |
+     [Child Node]
+This special case 2 deletes the target node.
+Case 3: Removing a node with two children
+Before Removal:
+    [Target Node: to delete]
+        /           \
+ [Left Child]   [Right Child]
+                     |
+               [Successor Node]
+Copy successor data to Target:
+       [Successor Data Node]
+             /        \
+     [Left Child]   [Right Child]
+                     /
+             [Successor Node: now cleared]
+Lastly:
+       [Successor Data Node]
+             /        \
+     [Left Child]   [Right Child]
+This special case 3 uses the algorithm that target locates the in-order successor It recursvely deltes the orignal successor node that garuntees to have one child.
+
+ALGORITHMS/RECURSION
+This program will have recursive insertion helpers, recursive retrieval helpers, recursive removal helpers, recursive display helps, recursive height calculator, reursive node counter, and lastly recursive structure destroyer. Recusive insertion helper will traverse downward from given node refernce. It will branch left or right depending on the string comparism, and it will stop when a emtry tree leaf will be spotted and when it will reach to place the new node. Recursive retrieval helper will divide the active search space. One of the recursive removal helper will be done by G number. It will navigate down a single path and it will be responsible for pointer reassignment. Other recursive removal helper will be done by the student program. It will use post-order traversal apprach. Recursive display helper will be conducted by in-order traversal apparch. Recursive height calculate will deep path layout. Recursive Node counter will return one added to the sume of recursiv enode, and those recursive nodes count will come from both child branches. Recursive Structure Destroyer will implement a post order clearing pass. It will recursively clean up before preeing the parent objects.
+
+ADT INTERFACE
+The way the design of this program will be implemented into the program, the user will not know things like the private functions. It will have helper functions that copies and destroys the student information by setting dynamic memory space and by cleaning up the memory. It will have structural function of insert, retrieve, and removal. This ADT public insertion interface will have core tasks that accepts student record, and it will also report success and failer, and will do client shielding. It's Public retrieval interface will searche the storage structure by matching the g-number. Public removal by G-number interface identifies single node will get matched with the provided g-number, and it will link the node path by preserving the tree integrity, and purger the item. It will also have public removal by program interface, along with public display interface, and public tree monitoring interface that will do all the tasks in StudentBST ADT.
+
+TEST PLAN
+The plan will be test the to see if the neu student is getting iserting correct. This test plan will also test retrival of information by g-number and  it will also test removal functions. It will also test if the student information is displaying correctly. We will also test if the monitor funcion is also working correctly. For the text plan 1: student info will be inserted into the program. For text plan 2: the student information will be retrive by enter g number. For test plan 3: program name will be entered to test removal. For test plan 4: g-number will be entered to test another removal function. For test plan5: after doing insertion, retrival, removal, the display function will be tested to see if its outputs are the correct information, it will also test if the student.txt file data was added into the program. For test plan number 6: it will verify the monitor function after evry single ADT operation.
